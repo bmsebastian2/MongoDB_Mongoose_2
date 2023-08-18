@@ -1,14 +1,22 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
+// 1 # Instalar y configurar Mongoose
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .catch((e) => console.log("err:" + e));
+// 2 # Crear un modelo
 
-let Person;
+const personShema = mongoose.Schema({
+  name: String,
+  age: Number,
+  favoriteFoods: [String],
+});
+
+let Person = mongoose.model("Person", personShema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
