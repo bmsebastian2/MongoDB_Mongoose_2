@@ -22,21 +22,24 @@ let Person = mongoose.model("Person", personShema);
 
 // 3 # Crear y guardar un registro de un modelo
 
-const createAndSavePerson = (done) => {
+const createAndSavePerson = () => {
   const person = new Person({
-    name: "Pepe Trueno",
-    age: 24,
-    favoriteFoods: ["Pizza", "Asado", "Ensalada"],
+    name: "Pepe Trueno2",
+    age: 26,
+    favoriteFoods: ["Pizzas", "Carne", "Pollo"],
   });
-  person
-    .save()
-    .then(() => console.log("Persona registrada"))
-    .catch((err) => {
-      console.error(err);
-    });
-  done(null /*, data*/);
+  person.save(function (err, data) {
+    console.log(err ? "error" : "bien ok ok");
+  });
+  // person
+  //   .save()
+  //   .then(() => console.log("Persona registrada"))
+  //   .catch((err) => {
+  //     console.error(err);
+  //   });
+  //done(null /*, data*/);
 };
-
+createAndSavePerson(null);
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
 };
