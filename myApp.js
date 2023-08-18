@@ -1,12 +1,8 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-let uri2 =
-  "mongodb+srv://bmsebastian2:Ab15415958@clusterfreecodecamp.xtnllec.mongodb.net/?retryWrites=true&w=majority";
-// process.env.MONGO_URI;
-console.log("ENV:");
-console.log(process.env.MONGO_URI);
+
 mongoose
-  .connect(uri2, {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
