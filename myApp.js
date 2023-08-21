@@ -129,12 +129,17 @@ const queryChain = (done) => {
       done(null , data);
       })*/
 
-  var findQuery =Person.find({name:foodToSearch})
+  let findQuery =Person.find({name:foodToSearch})
+  
   let find = findQuery.sort({age:1})
+  
   let limit = find.limit(2)
-  let select = limit.select("name favoriteFoods").exec((err,data)=>{
-      if(err) return console.log(err)  
-      done(null , data);
+  
+  let select = limit.select("name favoriteFoods")
+      
+  select.exec((err,data)=>{
+      if (err) return console.log(err)  
+        done(null , data);
       }))
   
 };
