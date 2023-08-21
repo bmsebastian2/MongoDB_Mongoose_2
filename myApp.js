@@ -108,7 +108,10 @@ const removeById = (personId, done) => {
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
+  Person.romove({ name: nameToRemove }, (err, dataJson) => {
+    if (err) return err
+    done(null, dataJson);
+  })
   done(null /*, data*/);
 };
 
