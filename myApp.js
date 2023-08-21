@@ -131,7 +131,7 @@ const queryChain = (done) => {
 
   let findQuery =Person.find({name:foodToSearch})
   
-  let find = findQuery.sort({age:1})
+  let find = findQuery.sort({age:-1})
   
   let limit = find.limit(2)
   
