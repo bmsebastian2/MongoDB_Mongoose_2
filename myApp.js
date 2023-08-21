@@ -61,47 +61,37 @@ const findPeopleByName = (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-    Person.findOne({favoriteFoods:food},function(err,findFood){
-      if(err) return err
-      done(null , findFood);
-    })
+  Person.findOne({ favoriteFoods: food }, function(err, findFood) {
+    if (err) return err
+    done(null, findFood);
+  })
 };
 
 const findPersonById = (personId, done) => {
-  Person.findById(personId,function(err,personById){
-      if(err) return err
-      done(null , personById);
-    })
+  Person.findById(personId, function(err, personById) {
+    if (err) return err
+    done(null, personById);
+  })
 };
 
 const findEditThenSave = async (personId, done) => {
   const foodToAdd = "hamburger";
-  try{
-      const doc = await Person.findById(personId)
-      doc.favoriteFoods.push(foodToAdd)
-        doc.save(function(err, data) {   
-          if(err) return err
-          done(null, data);  
-          })
-    }catch{
-      console.log(err ? "error" : "bien ok ok");
-    }
-
-      
-  //Person.findByIdAndUpdate(personId,)
-      
-    
-       
-      //done(null , personById);
-    
-
-  //done(null /*, data*/);
+  try {
+    const doc = await Person.findById(personId)
+    doc.favoriteFoods.push(foodToAdd)
+    doc.save(function(err, data) {
+      if (err) return err
+      done(null, data);
+    })
+  } catch {
+    console.log(err ? "error" : "bien ok ok");
+  }
 };
 
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-
-  done(null /*, data*/);
+  Person.findOneAndUpdate({ name: personName }, { age: ageToSet }, { new: true })
+  //done(null /*, data*/);
 };
 
 const removeById = (personId, done) => {
