@@ -40,11 +40,13 @@ const createAndSavePerson = (done) => {
   //   });
 
 };
+
 var arrayOfPeople = [
   { name: "Frankie", age: 74, favoriteFoods: ["Del Taco"] },
   { name: "Sol", age: 76, favoriteFoods: ["roast chicken"] },
   { name: "Robert", age: 78, favoriteFoods: ["wine"] }
 ];
+
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, function(err, people) {
     if (err) return err
@@ -98,7 +100,10 @@ const findAndUpdate = (personName, done) => {
 };
 
 const removeById = (personId, done) => {
-  done(null /*, data*/);
+  A.findByIdAndRemove(personId, function(err, removedDoc) {
+    if (err) return err
+    done(null, removedDoc);
+  })
 };
 
 const removeManyPeople = (done) => {
