@@ -90,7 +90,10 @@ const findEditThenSave = async (personId, done) => {
 
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-  Person.findOneAndUpdate({ name: personName }, { age: ageToSet }, { new: true })
+  Person.findOneAndUpdate({ name: personName }, { age: ageToSet }, { new: true }, function(err, data) {
+    if (err) return err
+    done(null, data);
+  })
   //done(null /*, data*/);
 };
 
