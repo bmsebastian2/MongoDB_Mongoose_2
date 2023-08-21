@@ -71,7 +71,7 @@ const findPersonById = (personId, done) => {
   Person.findById(personId,function(err,personById){
       if(err) return err
       done(null , personById);
-    }))
+    })
 
   done(null /*, data*/);
 };
