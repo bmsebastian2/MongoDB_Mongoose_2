@@ -112,7 +112,6 @@ const removeManyPeople = (done) => {
     if (err) return err
     done(null, dataJson);
   })
-  done(null /*, data*/);
 };
 
 const queryChain = (done) => {
