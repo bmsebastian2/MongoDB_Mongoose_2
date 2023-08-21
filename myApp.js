@@ -72,8 +72,6 @@ const findPersonById = (personId, done) => {
       if(err) return err
       done(null , personById);
     })
-
-  done(null /*, data*/);
 };
 
 const findEditThenSave = (personId, done) => {
