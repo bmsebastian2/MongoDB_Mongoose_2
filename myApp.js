@@ -140,7 +140,7 @@ const queryChain = (done) => {
   select.exec((err,data)=>{
       if (err) return console.log(err)  
         done(null , data);
-      }))
+      } )
   
 };
 
