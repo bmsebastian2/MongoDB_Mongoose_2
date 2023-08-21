@@ -30,6 +30,7 @@ const createAndSavePerson = (done) => {
   });
   person.save(function(err, data) {
     console.log(err ? "error" : "bien ok ok");
+    done(null, data);
   });
   // person
   //   .save()
@@ -37,13 +38,19 @@ const createAndSavePerson = (done) => {
   //   .catch((err) => {
   //     console.error(err);
   //   });
-  //done(null /*, data*/);
+
 };
+var arrayOfPeople = [
+  { name: "Frankie", age: 74, favoriteFoods: ["Del Taco"] },
+  { name: "Sol", age: 76, favoriteFoods: ["roast chicken"] },
+  { name: "Robert", age: 78, favoriteFoods: ["wine"] }
+];
 const createManyPeople = (arrayOfPeople, done) => {
-  Person.create(arrayOfPeople).save(function(err, data) {
+  Person.create(arrayOfPeople).save(function(err, people) {
     console.log(err ? "error" : "bien ok ok");
+    done(null, people);
   });
-  // done(null /*, data*/);
+
 };
 
 const findPeopleByName = (personName, done) => {
